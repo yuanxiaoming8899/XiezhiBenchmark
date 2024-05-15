@@ -1,98 +1,70 @@
-<p align="center"> <img src="resources/title.png" style="width: 100%;" id="title-icon">       </p>
-
-Xiezhi (獬豸) is a comprehensive evaluation suite for Language Models (LMs). It consists of 249587 multi-choice questions spanning 516 diverse disciplines and four difficulty levels, as shown below. Please check our [paper](https://arxiv.org/abs/2306.05783) for more details, and our **website** will be open later on. 
-
-We hope Xiezhi could help developers track the progress and analyze the important strengths/shortcomings of their LMs.
-
-<img src="resources/overview.png" style="zoom: 80%;" >
-
-
-
-## Table of Contents
-
-- [Leaderboard](#leaderboard)
-- [Experiment Setting](#experiment-setting)
-- [Data](#data)
-- [How To Run Your Own Test](#how-to-run-your-own-test)
-- [TODO](#todo)
-- [Licenses](#licenses)
-- [Citation](#citation)
-
-## Leaderboard
-
-Below are the ranking of models in 0-shot learning in our experiment setting.
-The metric we used is MRR score.
-The detail of our experiment setting please refer to our [Experiment Setting](#experiment setting).
-✓ denotes human performance exceeds the state-of-the-art LLMs, whereas ✗ signifies LLMs have surpassed human performance.
-
-
-<p align="center"> <img src="resources/ModelsRanking.png" style="width: 100%;" id="model-rank"></p>
-
-## Experiment Setting
-
-### Options Setting
-
-All tested LLMs need to choose the best-fit answer from 50 options for each question. 
-Each question is set up with 3 confusing options in addition to the correct answer, and another 46 options are randomly sampled from all options in all questions in Xiezhi. 
-It is worth noting that it is possible to use WordNet, open source synonym databases, or other word construction methods to generate more confusing options. 
-However, our experiments show that the performance of all LLMs declined dramatically when the number of options increased, even when using so many non-confusing options. 
-This achieves our goal of exacerbating the performance gap between LLMs through new experimental settings.
-
-### Metric
-
-In this section, we present mainly two experiment results: the overall performance of all LLMs across various benchmarks, 
-and the ranking of the top eight 0-shot LLMs in 12 non-sensitive domain categories of the Xiezhi-Benchmark with the scores for top and average practitioners. 
-For the 45 open-source models assessed in our evaluation, 
-we calculated the probability of each model choosing every option using generative probabilities and then ranked all options accordingly based on  the probabilities. 
-Due to legal considerations, we only display the results of two publicly recognized  API-based LLMs: ChatGPT and GPT-4, 
-and we ask them to rank all given options through instructions.
-To represent the results of all ranking outcomes, we employed the Mean Reciprocal Rank (MRR) as the metric, 
-which calculates the reciprocal rank of the correct answer. 
-MRR closer to 1 indicates that  the model is more capable of placing the correct answer at the front of the ranking, 
-while it suggests that the LLM tends to place the correct answer at the bottom if it is closer to 0.
-
-## Data
-Example of question in Xiezhi Speciality:
-<p align="center"> <img src="resources/question_spec.png" style="width: 100%;" id="question-spec"></p>
-
-Example of question in Xiezhi Interdiscipline:
-<p align="center"> <img src="resources/question_inter.png" style="width: 100%;" id="question-inter"></p>
-
-Example of our few-shot learning setting:
-<p align="center"> <img src="resources/question-3shot.png" style="width: 100%;" id="question-3shot"></p>
-
-## How To Run Your Own Test
-- The testing can be performed on a set of models including C-Eval, M3KE, MMLU, Xiezhi-Inter, and Xiezhi-Spec, all of which are contained within the `./Tester/model_test.py` file.
-- Anyone can simply run `./Tester/test.sh` to do the evaluation
-- For your own data, you need to rewrite the `_get_data` function in `./Tester/model_test.py`
-
-## TODO
-- [ ] add results of traditional 4 options experiments setting
-- [ ] add results of more API-based models
-
-## Licenses
-
-[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
-
-This work is licensed under a [MIT License](https://lbesson.mit-license.org/).
-
-[![CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
-
-The Xiezhi dataset is licensed under a
-[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
-
-
-
-## Citation
-
-
-Please cite our paper if you use our dataset.
-
-```
-@article{gu2023xiezhi,
+<div class="Box-sc-g0xbh4-0 bJMeLZ js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><p align="center" dir="auto"> <a target="_blank" rel="noopener noreferrer" href="/MikeGu721/XiezhiBenchmark/blob/main/resources/title.png"><img src="/MikeGu721/XiezhiBenchmark/raw/main/resources/title.png" style="width: 100%; max-width: 100%;" id="user-content-title-icon"></a>       </p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Xiezhi（獬豸）是一个针对语言模型（LM）的综合评估套件。它由 249587 道多项选择题组成，涵盖 516 个不同学科和四个难度级别，如下所示。请查看我们的</font></font><a href="https://arxiv.org/abs/2306.05783" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">论文</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">了解更多详细信息，我们的</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">网站</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">将在稍后开放。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们希望协志能够帮助开发者跟踪进度并分析他们的 LM 的重要优点/缺点。</font></font></p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="/MikeGu721/XiezhiBenchmark/blob/main/resources/overview.png"><img src="/MikeGu721/XiezhiBenchmark/raw/main/resources/overview.png" style="max-width: 100%;"></a></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">目录</font></font></h2><a id="user-content-table-of-contents" class="anchor" aria-label="固定链接：目录" href="#table-of-contents"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><a href="#leaderboard"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">排行榜</font></font></a></li>
+<li><a href="#experiment-setting"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">实验设置</font></font></a></li>
+<li><a href="#data"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">数据</font></font></a></li>
+<li><a href="#how-to-run-your-own-test"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如何运行您自己的测试</font></font></a></li>
+<li><a href="#todo"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">去做</font></font></a></li>
+<li><a href="#licenses"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">许可证</font></font></a></li>
+<li><a href="#citation"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">引文</font></font></a></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">排行榜</font></font></h2><a id="user-content-leaderboard" class="anchor" aria-label="永久链接：排行榜" href="#leaderboard"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">以下是我们实验设置中 0-shot 学习模型的排名。我们使用的指标是 MRR 分数。我们的实验设置详情请参考我们的[实验设置](#实验设置)。 ✓ 表示人类表现超过了最先进的法学硕士，而 ✗ 表示法学硕士已经超越了人类表现。</font></font></p>
+<p align="center" dir="auto"> <a target="_blank" rel="noopener noreferrer" href="/MikeGu721/XiezhiBenchmark/blob/main/resources/ModelsRanking.png"><img src="/MikeGu721/XiezhiBenchmark/raw/main/resources/ModelsRanking.png" style="width: 100%; max-width: 100%;" id="user-content-model-rank"></a></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">实验设置</font></font></h2><a id="user-content-experiment-setting" class="anchor" aria-label="永久链接：实验设置" href="#experiment-setting"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">选项设置</font></font></h3><a id="user-content-options-setting" class="anchor" aria-label="永久链接：选项设置" href="#options-setting"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">所有经过测试的法学硕士都需要从每个问题的 50 个选项中选择最合适的答案。每道题除正确答案外还设置了3个容易混淆的选项，另外46个选项是从协志所有题的所有选项中随机抽取的。值得注意的是，可以使用WordNet、开源同义词数据库或其他单词构造方法来生成更多令人困惑的选项。然而，我们的实验表明，当选项数量增加时，即使使用如此多的非混淆选项，所有法学硕士的表现都会急剧下降。这实现了我们通过新的实验设置扩大法学硕士之间的绩效差距的目标。</font></font></p>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">公制</font></font></h3><a id="user-content-metric" class="anchor" aria-label="永久链接：公制" href="#metric"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在本节中，我们主要展示两个实验结果：所有LLM在各种基准上的整体表现，以及在Xiezhi-Benchmark的12个非敏感领域类别中排名前八的0-shot LLM的排名，得分最高和最高平均从业者。对于我们评估中评估的 45 个开源模型，我们使用生成概率计算每个模型选择每个选项的概率，然后根据概率对所有选项进行相应排名。出于法律方面的考虑，我们仅显示两个公开认可的基于 API 的 LLM 的结果：ChatGPT 和 GPT-4，并要求他们通过说明对所有给定选项进行排名。为了表示所有排名结果的结果，我们采用平均倒数排名（MRR）作为度量，它计算正确答案的倒数排名。 MRR 越接近 1 表明该模型更有能力将正确答案放在排名的前面，而如果它越接近 0，则表明 LLM 倾向于将正确答案放在最后。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">数据</font></font></h2><a id="user-content-data" class="anchor" aria-label="永久链接：数据" href="#data"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">写字专业的问题示例：</font></font></p>
+<p align="center" dir="auto"> <a target="_blank" rel="noopener noreferrer" href="/MikeGu721/XiezhiBenchmark/blob/main/resources/question_spec.png"><img src="/MikeGu721/XiezhiBenchmark/raw/main/resources/question_spec.png" style="width: 100%; max-width: 100%;" id="user-content-question-spec"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">协志交叉学科的问题示例：</font></font></p>
+<p align="center" dir="auto"> <a target="_blank" rel="noopener noreferrer" href="/MikeGu721/XiezhiBenchmark/blob/main/resources/question_inter.png"><img src="/MikeGu721/XiezhiBenchmark/raw/main/resources/question_inter.png" style="width: 100%; max-width: 100%;" id="user-content-question-inter"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们的几次学习设置的示例：</font></font></p>
+<p align="center" dir="auto"> <a target="_blank" rel="noopener noreferrer" href="/MikeGu721/XiezhiBenchmark/blob/main/resources/question-3shot.png"><img src="/MikeGu721/XiezhiBenchmark/raw/main/resources/question-3shot.png" style="width: 100%; max-width: 100%;" id="user-content-question-3shot"></a></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如何运行您自己的测试</font></font></h2><a id="user-content-how-to-run-your-own-test" class="anchor" aria-label="永久链接：如何运行自己的测试" href="#how-to-run-your-own-test"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">测试可以在一组模型上执行，包括 C-Eval、M3KE、MMLU、Xiezhi-Inter 和 Xiezhi-Spec，所有这些模型都包含在该</font></font><code>./Tester/model_test.py</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文件中。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">任何人都可以简单地运行</font></font><code>./Tester/test.sh</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">进行评估</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">对于您自己的数据，您需要重写该</font></font><code>_get_data</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">函数</font></font><code>./Tester/model_test.py</code></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">去做</font></font></h2><a id="user-content-todo" class="anchor" aria-label="永久链接：待办事项" href="#todo"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">添加传统4选项实验设置的结果</font></font></li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">添加更多基于 API 的模型的结果</font></font></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">许可证</font></font></h2><a id="user-content-licenses" class="anchor" aria-label="永久链接：许可证" href="#licenses"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><a href="https://lbesson.mit-license.org/" rel="nofollow"><img src="https://camo.githubusercontent.com/6552afb9038154d801c50b6e55a76db78a6787a8d6e2b5252a44864503c52887/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4c6963656e73652d4d49542d626c75652e737667" alt="麻省理工学院许可证" data-canonical-src="https://img.shields.io/badge/License-MIT-blue.svg" style="max-width: 100%;"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"></font><a href="https://lbesson.mit-license.org/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">本作品根据MIT 许可证</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">获得许可</font><font style="vertical-align: inherit;">。</font></font></p>
+<p dir="auto"><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" rel="nofollow"><img src="https://camo.githubusercontent.com/5254836b4c2097cdf9b882f21a089aa7c06f73b990d36efb5dac7ac41cd764cd/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4c6963656e73652d434325323042592d2d4e432d2d5341253230342e302d6c69676874677265792e737667" alt="CC BY-NC-SA 4.0" data-canonical-src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg" style="max-width: 100%;"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Xiezhi 数据集根据
+</font></font><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">获得许可。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">引文</font></font></h2><a id="user-content-citation" class="anchor" aria-label="永久链接：引文" href="#citation"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您使用我们的数据集，请引用我们的论文。</font></font></p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>@article{gu2023xiezhi,
 title={Xiezhi: An Ever-Updating Benchmark for Holistic Domain Knowledge Evaluation}, 
 author={Zhouhong, Gu and Xiaoxuan, Zhu and Haoning, Ye and Lin, Zhang and Jianchen, Wang and Sihang, Jiang and Zhuozhi, Xiong and Zihan, Li and Qianyu, He and Rui, Xu and Wenhao, Huang and Weiguo, Zheng and Hongwei, Feng and Yanghua, Xiao}
 journal={arXiv:2304.11679},
 year={2023}
 }
-```
+</code></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="@article{gu2023xiezhi,
+title={Xiezhi: An Ever-Updating Benchmark for Holistic Domain Knowledge Evaluation}, 
+author={Zhouhong, Gu and Xiaoxuan, Zhu and Haoning, Ye and Lin, Zhang and Jianchen, Wang and Sihang, Jiang and Zhuozhi, Xiong and Zihan, Li and Qianyu, He and Rui, Xu and Wenhao, Huang and Weiguo, Zheng and Hongwei, Feng and Yanghua, Xiao}
+journal={arXiv:2304.11679},
+year={2023}
+}" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+</article></div>
